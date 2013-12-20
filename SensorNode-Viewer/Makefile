@@ -1,0 +1,25 @@
+COMPONENT=SensorC
+
+CFLAGS += -I$(TOSDIR)/lib/printf
+CFLAGS += -DPRINTF_BUFFER_SIZE=2048
+
+ifdef X_COORD
+ PFLAGS += -DX_COORD_CONFIG=$(X_COORD)
+else
+ PFLAGS += -DX_COORD_CONFIG=0
+endif
+
+ifdef Y_COORD
+ PFLAGS += -DY_COORD_CONFIG=$(Y_COORD)
+else
+ PFLAGS += -DY_COORD_CONFIG=0
+endif
+
+ifdef Z_COORD
+ PFLAGS += -DZ_COORD_CONFIG=$(Z_COORD)
+else
+ PFLAGS += -DZ_COORD_CONFIG=0
+endif
+
+include $(MAKERULES)
+

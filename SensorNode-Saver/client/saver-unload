@@ -1,0 +1,12 @@
+#!/bin/sh
+
+ps ax | grep DataSaver | grep -v grep | cut -d "p" -f 1 > kill.list
+
+while read line;
+do 
+	echo "Killing PID " $line
+	kill $line;
+done < kill.list
+
+rm kill.list
+
